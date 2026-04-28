@@ -4,7 +4,7 @@ import com.example.kmplib.presentation.ProductListViewModel
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.get
 
-fun initKmpLibIos() {
+fun startKmpLibIos() {
     initKmpLib()
 }
 
