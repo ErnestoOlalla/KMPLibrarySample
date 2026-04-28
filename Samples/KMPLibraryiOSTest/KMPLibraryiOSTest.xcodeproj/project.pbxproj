@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		10D8E23A2FA0E077004FDEDA /* shared in Frameworks */ = {isa = PBXBuildFile; productRef = 10D8E2392FA0E077004FDEDA /* shared */; };
+		10C5F59C2FA0EF11004E7DF8 /* KmpProductsLib in Frameworks */ = {isa = PBXBuildFile; productRef = 10C5F59B2FA0EF11004E7DF8 /* KmpProductsLib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,17 +27,25 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				10D8E23A2FA0E077004FDEDA /* shared in Frameworks */,
+				10C5F59C2FA0EF11004E7DF8 /* KmpProductsLib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		10C5F59A2FA0EF11004E7DF8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		10D8E2212FA0DBDF004FDEDA = {
 			isa = PBXGroup;
 			children = (
 				10D8E22C2FA0DBDF004FDEDA /* KMPLibraryiOSTest */,
+				10C5F59A2FA0EF11004E7DF8 /* Frameworks */,
 				10D8E22B2FA0DBDF004FDEDA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -70,7 +78,7 @@
 			);
 			name = KMPLibraryiOSTest;
 			packageProductDependencies = (
-				10D8E2392FA0E077004FDEDA /* shared */,
+				10C5F59B2FA0EF11004E7DF8 /* KmpProductsLib */,
 			);
 			productName = KMPLibraryiOSTest;
 			productReference = 10D8E22A2FA0DBDF004FDEDA /* KMPLibraryiOSTest.app */;
@@ -373,10 +381,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		10D8E2392FA0E077004FDEDA /* shared */ = {
+		10C5F59B2FA0EF11004E7DF8 /* KmpProductsLib */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 10D8E2382FA0E077004FDEDA /* XCRemoteSwiftPackageReference "KMPLibrarySample" */;
-			productName = shared;
+			productName = KmpProductsLib;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
