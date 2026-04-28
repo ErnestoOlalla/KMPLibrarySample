@@ -131,6 +131,7 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git fetch origin main
           git checkout main
+          git pull --rebase origin main
           git add Package.swift
           git diff --cached --quiet || git commit -m "chore: update Package.swift for ${{ needs.create-tag.outputs.version || needs.resolve-version.outputs.version }}"
           git push origin main
