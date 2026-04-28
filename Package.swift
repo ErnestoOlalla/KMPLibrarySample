@@ -16,8 +16,8 @@ let package = Package(
         ),
         .binaryTarget(
             name: "shared",
-            url: "https://github.com/ErnestoOlalla/KMPLibrarySample/releases/download/v1.0.5/shared.xcframework.zip",
-            checksum: "7da468fac34e4c3b3a48da7b358741a5c2cf6a2652df51210eed12bb0386da9a"
+            url: "https://github.com/ErnestoOlalla/KMPLibrarySample/releases/download/v1.0.6/shared.xcframework.zip",
+            checksum: "f31cb89f5846ce6acf1909f0ee26b2e4a5a933cc6a2d95ee6443635bb5ad4a1e"
         )
     ]
 )
