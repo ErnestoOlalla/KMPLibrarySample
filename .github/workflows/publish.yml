@@ -118,23 +118,12 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Update Package.swift
-        env:
-          VERSION: ${{ needs.create-tag.outputs.version || needs.resolve-version.outputs.version }}
-          CHECKSUM: ${{ steps.checksum.outputs.sha256 }}
-          REPO: ${{ github.repository }}
         run: |
-          URL="https://github.com/${REPO}/releases/download/${VERSION}/shared.xcframework.zip"
-          python3 -c "
-          import re, os
-          url = os.environ['URL']
-          checksum = os.environ['CHECKSUM']
-          with open('Package.swift') as f:
-              content = f.read()
-          content = re.sub(r'url: \"[^\"]*\"', 'url: \"' + url + '\"', content)
-          content = re.sub(r'checksum: \"[^\"]*\"', 'checksum: \"' + checksum + '\"', content)
-          with open('Package.swift', 'w') as f:
-              f.write(content)
-          "
+          VERSION="${{ needs.create-tag.outputs.version || needs.resolve-version.outputs.version }}"
+          CHECKSUM="${{ steps.checksum.outputs.sha256 }}"
+          URL="https://github.com/${{ github.repository }}/releases/download/${VERSION}/shared.xcframework.zip"
+          sed -i '' "s|url: \"[^\"]*\"|url: \"${URL}\"|" Package.swift
+          sed -i '' "s|checksum: \"[^\"]*\"|checksum: \"${CHECKSUM}\"|" Package.swift
 
       - name: Commit and push Package.swift
         run: |
