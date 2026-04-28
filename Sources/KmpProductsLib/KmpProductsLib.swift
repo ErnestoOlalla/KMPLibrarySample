@@ -1,5 +1,5 @@
 import shared
 
 public func initializeKmpLib() {
-    KmpLibIosHelperKt.initKmpLibIos()
+    KmpLibIosHelperKt.startKmpLibIos()
 }
