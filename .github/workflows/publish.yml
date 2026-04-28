@@ -117,23 +117,20 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Update Package.swift
-        run: |
-          VERSION="${{ needs.create-tag.outputs.version || needs.resolve-version.outputs.version }}"
-          CHECKSUM="${{ steps.checksum.outputs.sha256 }}"
-          URL="https://github.com/${{ github.repository }}/releases/download/${VERSION}/shared.xcframework.zip"
-          sed -i '' "s|url: \"[^\"]*\"|url: \"${URL}\"|" Package.swift
-          sed -i '' "s|checksum: \"[^\"]*\"|checksum: \"${CHECKSUM}\"|" Package.swift
-
-      - name: Commit and push Package.swift
+      - name: Update Package.swift and push
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git fetch origin main
           git checkout main
           git pull --rebase origin main
+          VERSION="${{ needs.create-tag.outputs.version || needs.resolve-version.outputs.version }}"
+          CHECKSUM="${{ steps.checksum.outputs.sha256 }}"
+          URL="https://github.com/${{ github.repository }}/releases/download/${VERSION}/shared.xcframework.zip"
+          sed -i '' "s|url: \"[^\"]*\"|url: \"${URL}\"|" Package.swift
+          sed -i '' "s|checksum: \"[^\"]*\"|checksum: \"${CHECKSUM}\"|" Package.swift
           git add Package.swift
-          git diff --cached --quiet || git commit -m "chore: update Package.swift for ${{ needs.create-tag.outputs.version || needs.resolve-version.outputs.version }}"
+          git diff --cached --quiet || git commit -m "chore: update Package.swift for ${VERSION}"
           git push origin main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
