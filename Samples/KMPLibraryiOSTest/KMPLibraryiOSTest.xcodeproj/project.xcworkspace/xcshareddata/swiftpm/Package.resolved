@@ -1,0 +1,15 @@
+{
+  "originHash" : "ada1d2d3e274060168652b4804269980e0fe96867c58cd053f7871e056f88381",
+  "pins" : [
+    {
+      "identity" : "kmplibrarysample",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ErnestoOlalla/KMPLibrarySample",
+      "state" : {
+        "revision" : "812b229bb99fc20607f3e719ff85dfc01af0ffe8",
+        "version" : "1.0.5"
+      }
+    }
+  ],
+  "version" : 3
+}
