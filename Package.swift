@@ -6,9 +6,14 @@ let package = Package(
     name: "KmpProductsLib",
     platforms: [.iOS(.v15)],
     products: [
-        .library(name: "shared", targets: ["shared"]),
+        .library(name: "KmpProductsLib", targets: ["KmpProductsLib"]),
     ],
     targets: [
+        .target(
+            name: "KmpProductsLib",
+            dependencies: ["shared"],
+            path: "Sources/KmpProductsLib"
+        ),
         .binaryTarget(
             name: "shared",
             url: "https://github.com/ErnestoOlalla/KMPLibrarySample/releases/download/v1.0.4/shared.xcframework.zip",

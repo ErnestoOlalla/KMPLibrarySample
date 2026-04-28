@@ -123,12 +123,12 @@ In Xcode:
 #### Initialize the library (once, in your `App` entry point)
 
 ```swift
-import shared
+import KmpProductsLib
 
 @main
 struct MyApp: App {
     init() {
-        KmpLibIosHelper().initialize()
+        initializeKmpLib()
     }
     var body: some Scene {
         WindowGroup { ContentView() }
@@ -139,7 +139,7 @@ struct MyApp: App {
 #### Use the SwiftUI view
 
 ```swift
-import shared
+import KmpProductsLib
 
 struct ContentView: View {
     var body: some View {
