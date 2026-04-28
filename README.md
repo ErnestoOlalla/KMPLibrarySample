@@ -52,38 +52,29 @@ shared/
 
 ### Android
 
-The library is published to **GitHub Packages** (Maven). GitHub Packages requires authentication even for public packages — you need a [Personal Access Token](https://github.com/settings/tokens) with the `read:packages` scope.
+The library is distributed via **[JitPack](https://jitpack.io/#ErnestoOlalla/KMPLibrarySample)** — no credentials or tokens required.
 
-Add the repository and credential in your project's `settings.gradle.kts`:
+Add JitPack to your project's `settings.gradle.kts`:
 
 ```kotlin
 dependencyResolutionManagement {
     repositories {
-        maven {
-            url = uri("https://maven.pkg.github.com/ErnestoOlalla/KMPLibrarySample")
-            credentials {
-                username = providers.gradleProperty("gpr.user").orElse("").get()
-                password = providers.gradleProperty("gpr.token").orElse("").get()
-            }
-        }
+        google()
+        mavenCentral()
+        maven { url = uri("https://jitpack.io") }
     }
 }
-```
-
-Store your token locally in `~/.gradle/gradle.properties` (never commit this file):
-
-```properties
-gpr.user=YOUR_GITHUB_USERNAME
-gpr.token=YOUR_PERSONAL_ACCESS_TOKEN
 ```
 
 Add the dependency in your module's `build.gradle.kts`:
 
 ```kotlin
 dependencies {
-    implementation("com.example.kmplib:shared:1.0.0")
+    implementation("com.github.ErnestoOlalla:KMPLibrarySample:v1.0.0")
 }
 ```
+
+> Replace `v1.0.0` with the desired [release tag](https://github.com/ErnestoOlalla/KMPLibrarySample/releases). You can also use `main-SNAPSHOT` to always get the latest commit on `main`.
 
 #### Initialize the library (once, in your `Application` class)
 
@@ -161,8 +152,8 @@ struct ContentView: View {
 
 GitHub Actions will:
 - Create and push the git tag
-- Build the Android AAR and publish it to GitHub Packages
 - Build the iOS XCFramework, create a GitHub Release with the zip, and update `Package.swift`
+- JitPack will automatically build and serve the Android AAR when someone first requests it
 
 ### Option 2 — Via git tag
 
