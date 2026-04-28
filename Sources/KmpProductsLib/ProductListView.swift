@@ -49,6 +49,7 @@ class ProductListObservable: ObservableObject {
     init() {
         viewModel = KmpLibIosProvider.shared.provideProductListViewModel()
         cancellable = FlowWrapperKt.wrap(viewModel.state).observe { [weak self] newState in
+            guard let newState = newState as? ProductListState else { return }
             DispatchQueue.main.async {
                 self?.state = newState
             }
