@@ -6,8 +6,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/ErnestoOlalla/KMPLibrarySample",
       "state" : {
-        "revision" : "812b229bb99fc20607f3e719ff85dfc01af0ffe8",
-        "version" : "1.0.5"
+        "revision" : "2c27b3490428d6c6d8edeb6a3b71628da79f4f29",
+        "version" : "1.0.8"
       }
     }
   ],
