@@ -132,5 +132,7 @@ jobs:
           git add Package.swift
           git diff --cached --quiet || git commit -m "chore: update Package.swift for ${VERSION}"
           git push origin main
+          git tag -f "${VERSION}"
+          git push origin "${VERSION}" --force
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
